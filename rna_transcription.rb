@@ -1,12 +1,12 @@
 class Complement
   VERSION = 1
-  @complement_hash = {'G' => 'C', 'C' => 'G', 'T' => 'A', 'A' => 'U'}
+  COMPLEMENT_HASH = {'G' => 'C', 'C' => 'G', 'T' => 'A', 'A' => 'U'}
 
   def self.of_dna(dna)
     rna = ''
     dna.each_char do |char|
-      raise ArgumentError unless @complement_hash.key?(char)
-      rna += @complement_hash[char]
+      raise ArgumentError unless COMPLEMENT_HASH.key?(char)
+      rna += COMPLEMENT_HASH[char]
     end
     rna
   end
@@ -15,8 +15,8 @@ class Complement
   def self.of_rna(rna)
     dna = ''
     rna.each_char do |char|
-      raise ArgumentError unless @complement_hash.value?(char)
-      dna += @complement_hash.key(char)
+      raise ArgumentError unless COMPLEMENT_HASH.value?(char)
+      dna += COMPLEMENT_HASH.key(char)
     end
     dna
   end
